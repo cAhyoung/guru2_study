@@ -46,3 +46,22 @@
   ary!!.add(100) // array에 100 추가
   ary!!.add(null) // error
   ```
+- 조건문
+  - 조건이 True 또는 False일 때 어떤 작업을 할 지 결정할 수 있도록 함
+  - 다른 말로 *이중분기*라고도 함
+  ```kotlin
+  if (condition) {
+  // True일 때 
+  }
+  else {
+  // False일 때
+  }
+  ```
+  - when문은 다중 if문으로 여러 경우에 대한 작업을 작성할 수 있음
+  ```kotlin
+  when (expression) {
+  value1 -> // value1이라면 이 부분 실행
+  value2 -> // value2라면 이 부분 실행
+  else -> // 어디에도 해당되지 않는다면 이 부분 실행
+  }
+  ```
