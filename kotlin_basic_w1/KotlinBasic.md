@@ -239,3 +239,52 @@
       - superclass(부모클래스)
       - subclass(자식클래스) -> superclass의 필드와 메소드를 선언 없이 사용함
       - method overriding -> superclass의 메소드를 무시하고 새로 정의함
+    - 추상 클래스
+      - 추상 클래스는 instance 생성 불가
+      - 추상클래스는 클래스 앞에 abstract 키워드를 붙여서 지정함
+      ```kotlin
+      // instance화
+      var auto : Automobile  = Automobile()
+      ```
+    - 추상 메소드
+      - 본체가 없는 메소드
+      - 메소드 앞에 abstract 키워드를 붙여서 지정
+      - 추상 메소드를 포함하는 클래스는 추상 클래스로 지정해야 함
+      - 공통적으로 사용되는 기능을 추상 메소드로 선언하고, 추상 클래스를 상속받은 후 추상 메소드를 오버라이딩해서 사용하기 위함
+      - implement(구현하다) -> 추상 메소드를 오버라이딩 하다
+    - 변수의 다형성
+      - 서브 클래스에서 생성한 인스턴스를 자신의 클래스 변수에 대입할 수 있는 것을 의미
+      - 하나의 변수에 여러종류의 인스턴스를 대입할 수 있음
+    - 인터페이스
+      - 추상 클래스와 성격이 비슷함
+      - interface 키워드를 사용하여 정의하고 내부에는 추상메소드를 선언함
+      - 클래스에서 인터페이스를 받아 완성할 때 상속과 마찬가지로 ':인터페이스 이름' 형식을 사용함
+      - 인터페이스는 '상속받는다'고 하지 않고 '구현한다'고 함
+      - kotlin은 다중상속을 지원하지 않음
+        - interface를 이용해 다중상속과 유사하게 작성할 수 있음
+- 추가적인 문법
+  - 패키지
+    - 클래스와 인터페이스가 많아지면 관리하기 어려워 패키지단위로 묶어서 관리함
+    - package 패키지명
+    ```kotlin
+    // 자바 프로젝트처럼 디렉토리와 매치되어야 하지는 않음
+    package  com.example.edu
+    class Person(val name: String, val age: Int)
+    ```
+    - 패키지를 지정하지 않으면 이름이 없는 기본(default) 패키지 포함
+    - import 이름이 충돌하면 as 키워드를 이용해 로컬에서 사용할 이름을 변경하여 사용
+    ```kotlin
+    import com.example.edu.Person
+    import com.example.edu.Person as User
+    ```
+    - import는 클래스 뿐만 아니라 다른 것도 불러올 수 있음
+    - 최상위 레벨 함수와 property, object 선언의 함수와 property, 열거형 상수
+    
+    | 패키지 이름 | 설명      |
+    |---------------|--------------|
+    | Kotlin.* | Any, Int, Double 등 코어 함수와 자료 형 | 
+    | Kotlin.text.* | 문자와 관련된 API         |
+    | Kotlin.sequences.*|컬렉션 자료형의 하나로 반복이 허용되는 개체를 열거|
+    |||
+    |||
+   |
