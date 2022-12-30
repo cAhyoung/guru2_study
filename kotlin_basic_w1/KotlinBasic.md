@@ -138,3 +138,30 @@
    - break vs continue
      - 반복문에 break를 넣는 경우 반복문 밖으로 탈출함
      - 반복문에 continue를 넣는 경우 continue 뒤에 있는 문장을 거치지 않고 다시 반복문의 처음으로 돌아감
+
+- 함수
+  ```kotlin
+  fun sum(a: Int, b:Int) : Int {
+    var sum = a + b
+  
+    return sum
+  }
+  
+  fun funName([varName: dataType, varName2: dataType]) : [return var dataType] {
+    expressions
+  
+    return returnVar
+  }
+  ```
+  - 코틀린은 다중 패러다임 언어로 함수형 프로그래밍과 객체지향 프로그래밍이 가능함
+  - 함수형 프로그래밍을 하는 이유는 코드를 간략하게 할 수 있으며, 테스트나 재사용성이 증가함
+    - 순수 함수, 람다식, 고차함수를 사용해서 구성함
+  ```kotlin
+  fun sum(a: Int, b: Int) {
+  return a + b
+  }
+  
+  // 간략한 버전
+  fun sum(a: Int, b: Int): Int = a + b
+  fun sum(a: Int, b: Int) = a + b
+  ```
