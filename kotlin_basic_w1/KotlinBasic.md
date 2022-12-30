@@ -227,7 +227,7 @@
     - companion object{} 안에 작성하여 정적 필드를 만듬
   - 정적 메소드(static method)
     - 메소드 또한 companion object{} 안에 작성
-    - instance를 생성하지 않고도 className.methodName()으로 호춣여 사용 가능
+    - instance를 생성하지 않고도 className.methodName()으로 호출하여 사용 가능
   - 상수 필드
     - 정적필드에 초깃값을 입력하고 const val로 선언
     - 선언 후 값을 변경할 수 없음
@@ -289,3 +289,146 @@
     | kotlin.io.*         | 입출력 관련 API                                   |
     | kotlin.collections.*| List, Set, Map 등의 컬렉션                        |
     | kotlin.annotation.* | 어노테이션 관련 API                               |
+  - 제네릭스(Generics)
+    - 데이터의 안전성을 보장
+    - 제네릭스를 사용해 strList에 문자열만 들어가도록 설정할 수 있음
+    - 다음 코드의 마지막 행은 컴파일 오류가 발생함
+    ```kotlin
+    var strList = ArrayList<String>(4)
+    strList.add("첫번째")
+    strList.add("두번째")
+    strList.add(3)  //error
+    ```
+    - 제네릭스는 String분만 아니라 Int, Double 등을 사용할 수 있음
+    - 사용자가 정의한 클래스 형에도 사용 가능
+  - 예외(exception)
+    - Kotlin 프로그램 실행 중에 발생하는 오류로 실행 도중의 잠재적인 오류까지 검사할 수 없어 비정상적으로 프로그램이 종료되는 경우
+      - 운영체제의 문제: 잘못된 시스템 호출의 문제
+      - 입력값의 문제: 존재하지 않는 파일, 숫자입력란에 문자 입력 등
+      - 받아들일 수 없는 연산: 0으로 나누기 등
+      - 메모리의 할당 실패 및 부족
+      - 컴퓨터 기계 자체의 문제: 전원 문제, 망가진 기억장치 등
+    ```kotlin
+    try {
+        // 예외 가능성있는 문장
+    } catch(e: /*예외처리 클래스 명*/) {
+        // 예외처리를 위한 문장
+    } finally {
+        //반드시 실행되어야 하는 문장
+    }
+    ```
+  - 날짜 형식
+    - DataFormat 클래스를 상속받은 SimpleDataFormat 사용
+    - 년월일, 시분초와같은 일반적 표현이 가능
+    ```kotlin
+    import java.text.DateFormat
+    import java.text.SimpleDateFormat
+    import java.util.*
+    
+    fun main() {
+        var now = Date
+        var sFormat : SimpleDataFormat
+    
+        sFormat = SimpleDateFormat("yyyyMMdd")
+        sFormat = SimpleDateFormat("HH:mm:ss")
+        
+        println(sFormat.format(now))
+    }
+    ```
+  - 문자열 비교
+    - String 클래스의 equals() 메소드 사용
+    ```kotlin
+    var str : String = "안녕하세요"
+    if (str.equals("안녕하세요")) {
+        // 문자열이 같다면 이곳을 수행
+    }
+    ```
+  - let()
+    - 블록에 자기 자신을 전달하고 수행된 결과를 반환하는 함수
+    ```kotlin
+    // fun <T, R> T.let(block: (T) -> R): R
+    val result = str?.let {
+        Integer.parseInt(it)  // parseInt: str을 int로 변환
+    }
+    ```
+  - with()
+    - parameter로 객체를 받고, 블록에서 수행된 결과를 반환하는 함수
+    ```kotlin
+    // fun <T, R> with(receiver: T, block T.() -> R): R
+    with(str) {
+        println(toUpperCase())
+    }
+    ```
+  - apply()
+    - 블록에 자기 자신을 전달하고 이 객체를 반환하는 함수
+    ```kotlin
+    // fun <T> T.apply(block: T.() -> Unit): T
+    val result = car?.apply{
+        car.setColor(Color.RED)
+        car.setPrice(1000)
+    }
+    ```
+  - run()
+    - 익명함수처럼 사용하거나 블록에 자기 자신을 전달하고 수행된 결과를 반환하는 함수
+    - 객체에서 호출하는 방법은 객체를 블록의 리시버 객체로 전달하고 블록의 결과를 반환함
+    - 안전한 호출을 할 수 있다는 장점으로 with() 함수보다 유용함
+    ```kotlin
+    // fun <R> run(block: () -> R): R
+    val avg = run {
+        val korean = 100
+        val english = 80
+        val math = 50
+        
+        (korean + english + math) / 3.0
+    }
+    ```
+  - 리스트
+    - 배열 같은 자료형의 데이터들을 순서대로 가지고 있는 자료구조
+    - 중복된 아이템을 가질 수 있고 추가, 삭제, 교체 등이 쉬움
+    ```kotlin
+    val foods: List<String> = listOf("라면", "갈비", "밥")
+    // 요소를 변경할 수 없는 읽기 전용 리스트는 listOf() 메서드로 작성
+    val foods = listOf("라면", "갈비", "밥")
+    
+    //요소를 변경하는 리스트를 작성할 때는 mutableListOf() 메서드 이용
+    val foods = mutableListOf("라면", "갈비", "밥")
+    foods.add("초밥")
+    foods.removeAt(0)  // 0번째 인덱스 아이템 삭제
+    foods[1] = "부대찌개"  // 인덱스 1번의 아이템을 부대찌개로 변경
+    ```
+  - map()
+    - key와 value의 쌍으로 이루어져 있으며, key가 중복될 수 없는 자료구조
+    ```kotlin
+    // 읽기 전용 map
+    val map = mapOf("a" to 1, "b" to 2, "c" to 3)
+    
+    // 변경 가능 map
+    val citiesMap = mutableMapOf("Korea" to "Seoul",
+                                "Japan" to "Tokyo",
+                                "China" to "Beijing")
+    // 요소 추가
+    citiesMap["USA"] = "Washington"
+    
+    // map의 key와 value 탐색
+    for ((k, v) in map) {
+        println("$k -> $v")
+    }
+    ```
+  - set
+    - set은 중복되지 않는 요소들로 구성된 자료구조
+    - setOf() 메서드로 읽기 전용집합을 만들고, mutableSetOf()메서드로 수정 가능한 집합을 만듬
+    ```kotlin
+    // 읽기 전용 집합
+    val citySet = setOf("서울", "수원", "부산")
+    
+    // 수정 가능한 집합
+    val citySet2 = mutableSetOf("서울", "수원", "부산")
+    citySet2.add("안양")
+    citySet2.remove("수원")
+    
+    // 집합의 크기
+    println(citySet2.size)
+    
+    // "서울"이 집합에 포함되어 있는지
+    println(citySet2.contains("서울"))
+    ```
