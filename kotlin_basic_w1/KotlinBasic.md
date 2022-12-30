@@ -165,3 +165,55 @@
   fun sum(a: Int, b: Int): Int = a + b
   fun sum(a: Int, b: Int) = a + b
   ```
+  - pure function (순수함수)
+    - 부작용이 없는 함수
+    - 동일한 입력 파라미터에 대해서는 항상 같은 결과를 출력하거나 반환함
+    - 값이 예측이 가능해 결정적임(deterministic)
+    - 순수함수의 조건
+      - 같은 인자에 대해 항상 같은 값을 반환함
+      - 함수 외부의 어떤 상태도 바꾸지 않음
+    ```kotlin
+    fun sum(a: Int, b: Int) : Int {
+        return a + b //  동일한 
+    }
+    ```
+  - lamda
+    - 익명 함수의 한 형태로 이름 없이 사용 및 실행가능
+    - 람다대수로부터 유래
+    - 람다식은 고차함수에서 인자로 넘기거나 결과값으로 반환하는 등의 작업이 가능함
+    - 변수에 람다식 적용 가능
+    ```kotlin
+    fun main() {
+    var result : Int
+    val multi = {x: Int, y: Int -> x*y} // 일반 변수에 람다식 할당
+    
+    result = multi(10, 20) // 람다식이 할당된 변수는 함수처럼 사용 가능
+    println(result)
+    }
+    ```
+    - 람다식은 {}로 감싸며 fun 예약어 사용 X
+    - {} 안 -> 의 왼쪽은 파라미터, 오른쪽은 함수의 내용을 작성
+    - -> 오른쪽 문장이 여러개라면 ;로 구분
+    - 내용 중 마지막 문장은 반환값(return)
+    ```kotlin
+    buttonVar.setOnClickListener {
+      // 버튼을 클릭하면 실행될 내용
+    }
+    ```
+  - 고차함수(high-order funtion)
+    - 일반 함수를 인자나 반환값으로 사용
+    ```kotlin
+    fun main() {
+        println(highFunc({x, y -> x + y}, 10, 20))  // 람다함수를 인자로 넘김
+    }
+    fun highFunc(sum: (Int, Int) -> Int, a: Int, b: Int) : Int = sum(a, b)
+    ```
+- 메소드
+  - 기본 메소드인 main() 함수 외에 사용자가 메소드를 추가할 수 있음
+  - 메소드를 호출할 때 파라미터를 넘길 수 있음
+  - 메소드에서 사용된 결과를 return 문으로 돌려줄 수 있음
+- 변수
+  - 전역변수
+    - 모든 메소드에서 사용됨
+  - 지역변수
+    - 메소드 내부에서만 사용됨
