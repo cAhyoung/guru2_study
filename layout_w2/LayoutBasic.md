@@ -40,3 +40,23 @@
       - 값을 숫자로 지정하는 경우
         - dp(Density-Independent Pixels): 어떤 기종을 사용하든 위젯 배치가 비슷하게 되도록 함
         - sp(Scale-Independent Pixels): 안드로이드os에서 텍스트 크기를 조절하는 경우 앱에서도 적용되도록 함
+  - backgroud 속성
+      - 뷰의 배경, 위젯의 색상을 지정함
+      - 주로 #RRGGBB 값으로 지정
+      - 각 색은 16진수로 표현
+  - margin 속성
+      - 외부 여백, 즉 뷰와 부모 뷰 사이의 공간
+      - 해당 여백은 뷰 자신의 영역에 포함되지 않음
+  - padding 속성
+      - 내부 여백, 즉 뷰와 뷰의 내용물 사이의 공간
+      - 해당 여백은 뷰 자신의 영역에 포함됨
+  - visibility 속성
+      - 위젯을 보일 것인지 여부를 결정함
+        - visible: default, 보이는 상태
+        - invisible: 안보이는 상태지만 원래의 자리는 계속 유지함
+        - gone: 안보이는 상태이며 원래의 자리까지 사라짐
+  - enabled, clickable 속성
+      - xml보다 kotlin 코드에서 주로 사용됨
+      - 값은 true와 false이며 default 값은 true
+      - enabled: 위젯의 동작 여부
+      - clickable: 클릭이나 터치 동작 여부
