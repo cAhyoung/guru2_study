@@ -280,11 +280,12 @@
     - import는 클래스 뿐만 아니라 다른 것도 불러올 수 있음
     - 최상위 레벨 함수와 property, object 선언의 함수와 property, 열거형 상수
     
-    | 패키지 이름 | 설명      |
-    |---------------|--------------|
-    | Kotlin.* | Any, Int, Double 등 코어 함수와 자료 형 | 
-    | Kotlin.text.* | 문자와 관련된 API         |
-    | Kotlin.sequences.*|컬렉션 자료형의 하나로 반복이 허용되는 개체를 열거|
-    |||
-    |||
-   |
+    |    패키지 이름      |                      설명                         |
+    |---------------------|---------------------------------------------------|
+    | kotlin.*            | Any, Int, Double 등 코어 함수와 자료 형           | 
+    | kotlin.text.*       | 문자와 관련된 API                                 |
+    | kotlin.sequences.*  |컬렉션 자료형의 하나로 반복이 허용되는 개체를 열거 |
+    | kotlin.ranges.*     | If문이나 for문에서 사용할 범위 관련 요소          |
+    | kotlin.io.*         | 입출력 관련 API                                   |
+    | kotlin.collections.*| List, Set, Map 등의 컬렉션                        |
+    | kotlin.annotation.* | 어노테이션 관련 API                               |
