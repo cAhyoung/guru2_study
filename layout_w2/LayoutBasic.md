@@ -39,4 +39,77 @@
         - 버튼의 글자와 관계없이 버튼을 싸고있는 부모(레이아웃)에 꽉 차는 크기가 됨
       - 값을 숫자로 지정하는 경우
         - dp(Density-Independent Pixels): 어떤 기종을 사용하든 위젯 배치가 비슷하게 되도록 함
-        - sp(Scale-Independent Pixels): 안드로이드os에서 텍스트 크기를 조절하는 경우 앱에서도 적용되도록 함
+        - sp(Scale-Independent Pixels): 안드로이드os에서 텍스트 크기를 조절하는 경우 앱에서도 적용되도록 함'
+  - background 속성
+    - view의 배경, widget의 색상을 지정
+    - #RRGGBB 값으로 지정, 16진수로 표현
+  - margin 속성
+    - 뷰와 부모 뷰 사이의 공간을 의미함
+    - 해당 여백은 뷰 자신의 영역에 포함되지 않음
+  - padding 속성
+    - 뷰와 뷰의 내용물 사이의 공간
+    - 해당 여백은 뷰 자신의 영역에 포함됨
+  - visibility 속성
+    - widget을 보일 것인가?
+    - visible: default 값, 보이는 상태
+    - invisible: 보이지 않지만 위치해있음
+    - gone: 보이지 않으며 위치도 존재하지 않음
+  - enabled, clickable 속성
+    - XML보다 Kotlin 코드에서 주로 사용됨
+    - enabled: 위젯의 동작 여부, true or false
+    - clickable: 클릭이나 터치 동작 여부, true or false
+- 배치를 담당하는 Layout
+  - 레이아웃 안에 존재하는 위젯을 배치하게 해줌
+  - 프로젝트를 처음 생성하면 화면을 구성하는 activity_main이라는 xml파일이 자동으로 만들어짐
+  - 레이아웃 파일은 소스코드가 아닌 리소스로 분류
+  - 파일명은 모두 소문자
+  - 파일 이름 끝에는 .xml
+- Layout 종류
+  - LinearLayout
+    - 위젯을 가로 또는 세로 한줄로 배치하기 위한 레이아웃
+    - orientation의 horizontal, vertical 중 하나로 설정해주면 기존에 배치되어있던 위젯들도 방향을 바꿀 수 있음
+    - androidx.constraintlayout.widget.ConstraintLayout을 LinearLayout으로 변경하여 사용
+    - 한 화면에서 위젯을 수평, 수직 모두 이용해 매치하는 경우
+      - 바깥의 큰 LinearLayout 안에 작은 LinearLayout을 여러개 넣어서 사용해야 함
+    - 주요 속성
+      - orientation: 레이아웃 안에 배치할 위젯을 수직으로 할지, 수평으로 할지 설정함
+        - 옵션: vertical, horizontal
+      - gravity: 레이아웃 안에 배치할 위젯의 정렬 방향을 좌, 우, 중앙 등으로 설정 -> 레이아웃에 속성이 적용됨
+        - 옵션: left, right, bottom, top, center, center_horizontal, center_vertical
+        - 2개씩 조합도 가능함
+        - defalt: left | top
+      - layout_gravity: 자신의 위치를 부모의 어디에 위치시킬지 결정 -> 위젯에 속성이 적용됨
+        - 옵션: gravity와 동일
+      - margin: 뷰와 부모 뷰 사이의 공간
+        - layout_margin: 4면 모두 동일한 여백 지정
+        - 옵션: layout_marginLeft, layout_marginRight, layout_marginTop, layout_marginBottom -> 4면의 개별 여백 지정 가능 
+      - padding: 레이아웃 안에 배치할 위젯의 여백 설정
+        - 뷰와 뷰의 내용물 사이의 공간
+        - padding: 4면 모두 동일한 여백 지정
+        - 옵션: paddingLeft, paddingTop, paddingRight, paddingBottom -> 4면의 개별 여백으로 지정 가능
+      - layout_weight: 레이아웃이 전체 화면에서 차지하는 공간의 가중값을 설정, 여러개의 레이아웃이 중복될 때 주로 사용함
+        - 중복 linear layout에서 사용됨
+        - linear layout을 사용하는 경우 각 layout의 크기를 지정해야 함
+        - layout을 화면 전체에 채워줘야 하기 때문에 주로 전체 화면에 대한 비율로 지정함
+        - 비율에 따라 부모 레이아웃의 남은 영역을 차지하는 비율이 결정됨
+      - baselineAligned: 레이아웃 안에 배치할 위젯을 보기 좋게 정렬
+        - 옵션: true, false
+        - default: true
+  - RelativeLayout
+    - 위젯과 부모와의 위치관계 또는 위젯끼리의 관계를 지정함으로써 뷰를 배치함
+    - 부모 뷰를 기준으로 위치 지정
+    - 속성: layout_alignParentLeft, layout_centerHorizontal, layout_alignParentRight, layout_alignParentTop, layout_centerVertical, layout_alignParentBottom, layout_centerlnParent
+    - relative layout 안에서 다른 위젯의 특정한 곳에 배치하는 방법도 존재함
+      - 해당 방식을 이용하기 위해서는 다른 위젯의 id를 지정해야 함
+      - 속성: toLeftOf-alignTop/alignBaseline/alignBottom, above-alignLeft/alignLeft, toRightOf-alignTop/alignBaseline/alignBottom, below-alignLeft/alignRight
+  - TableLayout
+    - 위젯을 표 형태로 배치할 때 주로 사용
+    - TableRow 속성과 함께 사용함
+    - 행의 수는 TableRow의 수, 열의 수는 TableRow 안에 포함된 위젯의 수
+    - 속성
+      - layout_span: 테이블 레이아웃 안에 포함된 위젯에 설정하는 속성으로 열을 합쳐서 표시하라는 의미
+      - layout_column: 테이블 레이아웃 안에 포함된 위젯에 설정하는 속성으로 지정된 열에 현재 위젯 표시
+      - stretchColumns: TableLayout 자체에 설정하는 속성으로 지정된 열의 너비를 늘리라는 의미, stretchColumns="*"는 각 셀을 모두 같은 크기로 확장하여 전체 화면이 꽉 차도록 함, 열 번호는 0번부터 시작함 
+  - GridLayout
+  - FrameLayout
+  - ConstraintLayout
