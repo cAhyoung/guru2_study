@@ -1,0 +1,21 @@
+<LinearLayout
+    android:orientation="vertical">
+    <!-- vertical 속성은 위젯을 세로로 배치해줌 -->
+    <!-- horizontal을 이용하면 위젯을 가로로 배치해줌 -->
+
+    <Button
+        android:layout_width="warp_content"
+        android:layout_height="warp_content"
+        android:text="Button1" />
+
+    <Button
+            android:layout_width="warp_content"
+            android:layout_height="warp_content"
+            android:text="Button2" />
+
+    <Button
+            android:layout_width="warp_content"
+            android:layout_height="warp_content"
+            android:text="Button3" />
+
+</LinearLayout>

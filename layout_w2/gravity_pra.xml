@@ -1,0 +1,11 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:gravity="right|bottom">
+    <!-- 레이아웃의 오른쪽 아래에 위젯을 배치함 -->
+
+    <Button
+        android:layout_width="warp_content"
+        android:layout_height="wrap_content"
+        android:text="Button1"/>
+
+</LinearLayout>
