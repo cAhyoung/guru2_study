@@ -111,5 +111,25 @@
       - layout_column: 테이블 레이아웃 안에 포함된 위젯에 설정하는 속성으로 지정된 열에 현재 위젯 표시
       - stretchColumns: TableLayout 자체에 설정하는 속성으로 지정된 열의 너비를 늘리라는 의미, stretchColumns="*"는 각 셀을 모두 같은 크기로 확장하여 전체 화면이 꽉 차도록 함, 열 번호는 0번부터 시작함 
   - GridLayout
+    - 격자 내부의 셀에 자식뷰를 배치하는 뷰 그룹
+    - 테이블 레이아웃과 비슷하지만 각각의 자식 뷰가 자신의 위치와 차지하는 셀의 개수를 독립적으로 지정할 수 있음
+    - GridLayout 관련 속성: rowCount-행의 수, columnCount-열의 수, orientation-그리드를 수평과 수직 중 어느 것을 우선으로 할지 설정함
+    - GridLayout의 위젯에 설정하는 속성
+      - layout_row: 자신이 위치할 행 번호(0부터 시작)
+      - layout_column: 자신이 위치할 열 번호(0부터 시작)
+      - layout_rowSpan: 행을 지정된 수만큼 확장
+      - layout_columnSpan: 열을 지정된 수만큼 확장
+      - layout_gravity: 주로 fill, fill_vertical, fill_horizontal 등으로 지정 -> layout_rowSpan이나 layout_columnSpan으로 행 또는 열을 확장했을 때 위젯을 확장된 셀에 꽉 채움
   - FrameLayout
+    - 레이아웃 안의 위젯을 왼쪽 상단부터 겹쳐서 출력함
+    - 속성: foreground-프레임레이아웃의 전경 이미지를 지정함, foregroundGravity-전경 이미지의 위치를 지정, fill, right, left, top, bottom 등의 값을 이용
   - ConstraintLayout
+    - 안드로이드 기본 레이아웃
+    - 화면에 배치되는 위젯들 사이에 간단한 제약 조건을 설정하여 화면 구성
+    - 주어진 위젯을 다른 위젯과 비교해 상대적으로 위치를 지정하고 배치함
+    - chaining: constraint로 연결된 위젯끼리 서로의 위치값을 공유하여 상대적인 값으로 크기와 위치를 결정하도록 함
+- Activity
+  - 화면을 구성하는 가장 기본적인 컴포넌트
+  - 앱을 실행 시 보여지는 화면을 구성할 수 있도록 해주는 안드로이드 구성요소
+  - 앱은 한개 혹은 여러개의 액티비티로 구성됨
+  - Activity class는 안드로이드의 Activity를 상속한 클래스로 다양한 액티비티 클래스가 존재하나 하위 호환성을 위헤 AppCompatActivity를 사용함
