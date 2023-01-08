@@ -1,0 +1,34 @@
+# Fragment
+- 사용자 인터페이스의 모음
+- fragment용 메서드
+  - onAttach()
+    - 액티비티에 붙을 때 호출됨. 호출됨으로써 액티비티의 참조를 사용할 수 있음
+  - onCreate()
+    - fragment가 생성될 때 호출됨. 레이아웃 완성 전
+  - onActivityCreated()
+    - 액티비티의 onCreate() 메서드가 수행된 직후에 호출
+  - onStart()
+    - fragment가 사용자에게 보요질 때 호출됨
+  - onResume()
+    - 사용자와 상호작용하기 시작함
+  - onPause()
+    - fragment가 일시 중지이거나 더이상 사용자와 상호작용하지 않음
+  - onStop()
+    - fragment가 중지됨
+  - onDestroyView()
+    - fragment가 해당 자원을 정리할 수 있도록 함
+  - onDestroy()
+    - fragment가 파괴될 때 호출
+  - onDetach()
+    - fragment가 액티비티에서 완전히 제거될 때 호출
+# Glide 라이브러리
+- 빠르고 효율적으로 이미지 처리
+- 이미지, Gif, 비디오 스틸 로딩과 디코딩, 캐싱 등의 API 지원
+- 다양한 종류의 이미지를 빠르고 부드러운 스크롤 지원
+- Glide 사용을 위해서 의존성 및 권한 설정이 필요함
+# PagerAdapter
+- ViewPager에 표시할 내용을 정의하려면 어댑터가 필요함
+- FragmentPagerAdapter
+  - 페이지 내용이 영구적일 때 적합함. 한번 로딩한 페이지는 메모리에 보관하기 때문에 빠름. 페이지가 많으면 많은 메모리 사용.
+- FragmentStatePagerAdapter
+  - 많은 수의 페이지가 있을 때 적합함. 보이지 않는 페이지를 메모리에서 제거할 수 있음. 상대적으로 적은 메모리를 차지함.
