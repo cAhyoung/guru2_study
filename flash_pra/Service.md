@@ -1,0 +1,13 @@
+# 서비스
+- 안드로이드 4대 컴포넌트 중 하나로 화면이 없고 백그라운드에서 수행하는 작업을 작성하는 컴포넌트
+- daemon, background process라고도 함
+- 화면과 상관없이 계속 동작함
+- 서비스 생명주기(started service(어떤 서비스인지 명시되어있지 않다면 started임), bounded service)
+  - 액티비티와 마찬가지로 생명주기용 콜백 메서드를 가지고 있음
+  - onCreate() 
+    - 서비스가 생성될 때 호출되는 콜백 메서드로 초기화 등을 수행함
+  - onStartCommand()
+    - 서비스가 액티비티와 같은 다른 컴포넌트로부터 startService() 메서드로 호출되면 불리는 콜백메서드. 실행할 작업을 여기에 작성
+  - onDestroy()
+    - 서비스 내부에서 stopSelf()를 호출하거나 외부에서 stopService()로 서비스를 종료하면 호출됨
+- 
