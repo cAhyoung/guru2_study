@@ -1,4 +1,4 @@
-package com.example.bmicalculator
+package bmi_pra.com.example.bmi_pra
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.example.mediaplayer
+package service_pra.com.example.service_pra
 
 import android.app.Service
 import android.content.Intent

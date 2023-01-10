@@ -1,4 +1,4 @@
-package com.example.stopwatch
+package timer_pra.com.example.timer_pra
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
