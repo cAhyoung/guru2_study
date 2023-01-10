@@ -1,4 +1,4 @@
-package com.example.flashlight
+package flash_pra.com.example.flashlight
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

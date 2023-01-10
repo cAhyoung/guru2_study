@@ -1,4 +1,4 @@
-package com.example.flashlight
+package flash_pra.com.example.flashlight
 
 import android.app.Service
 import android.content.Intent

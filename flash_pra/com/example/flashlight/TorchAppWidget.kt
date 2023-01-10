@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
+import flash_pra.com.example.flashlight.TorchService
 
 /**
  * Implementation of App Widget functionality.
